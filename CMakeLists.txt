@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 2.6)
 project(ass1-52)
 
+#Something about gplink
+
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules/")
 
 set(PIC_FLAGS "-mpic14 -p12f675")
