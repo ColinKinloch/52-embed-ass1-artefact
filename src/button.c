@@ -1,6 +1,6 @@
 #include "button.h"
 
-void butUpdate(struct Button *but, unsigned char input)
+void butUpdate(struct Button *but, uint8_t input)
 {
 	if(input)
 	{
@@ -21,5 +21,4 @@ void butUpdate(struct Button *but, unsigned char input)
 	}
 	
 	but->last = but->current;
-	
 }
