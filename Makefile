@@ -1,8 +1,8 @@
 PROJ = ass1-52
 CC = sdcc
 DEVICE = 12f675
-COPIMISE = 
-CFLAGS = $(C_OPIMISE) --use-non-free -mpic14 -p$(DEVICE)
+COPIMISE = --stack-size 8 --peep-return --opt-code-size
+CFLAGS = $(COPIMISE) --use-non-free -mpic14 -p$(DEVICE)
 LDFLAGS = 
 BUILDDIR = build
 SRCDIR = src
@@ -14,7 +14,7 @@ SIM = gpsim
 
 .PHONY: clean
 
-all: $(PROJ).hex
+all: $(PROJ).hex | clear
 %.hex: $(BUILDDIR)/%.o
 	$(CC) $(CFLAGS) $(LDFLAGS) $^ -o $@
 
@@ -32,5 +32,8 @@ install:
 sim:
 	$(SIM) -p p$(DEVICE) $(PROJ).hex
 
+clear: $(BUILDDIR)
+	rm -r $(BUILDDIR) ass1-52.lst ass1-52.cod
+
 clean: $(BUILDDIR)
-	rm -r $(BUILDDIR)
+	rm -r $(BUILDDIR) ass1-52.*

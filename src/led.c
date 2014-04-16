@@ -2,9 +2,9 @@
 
 void ledUpdate(uint8_t leds, uint8_t tick)
 {
-	if(BIT(leds, tick%8))
+	if(BIT(leds, tick))
 	{
-		switch(tick%8)
+		switch(tick)
 		{
 			case 0:
 			{
@@ -58,7 +58,7 @@ void ledUpdate(uint8_t leds, uint8_t tick)
 	}
 	else
 	{
-		TRISIO = 0;
-		GPIO = 0;
+		TRISIO = TDNA;
+		GPIO = DNA;
 	}
 }

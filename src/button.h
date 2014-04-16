@@ -13,7 +13,4 @@ typedef struct Button
 	uint8_t last:2; // Previous state of button
 } Button;
 
-// Updates but object 
-void butUpdate(struct Button *but, uint8_t input);
-
 #endif//CK_BUTTON
